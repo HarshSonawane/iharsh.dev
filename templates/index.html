@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+  <section class="intro">
+    <div class="intro-left">
+      <h2>Harshwardhan Vijay Sonawane</h2>
+      <p>
+        I am a backend developer at <a target="_blank" rel="noopener noreferrer" href="https://quickinsure.co.in/">Quickinsure</a>,
+        where I also manage AWS related services and occasionally handle frontend tasks.
+        <br><br>
+          Being part of a small team allows me to tackle a wide range of challenges, both big and small.
+        <br><br>
+        I occasionally build some <a href="#projects">hobby/freelance</a> projects.
+      </p>
+    </div>
+    <div class="intro-right">
+      <img class="intro-image" src="/img/thinker.png" alt="Harshwardhan Vijay Sonawane">
+    </div>
+  </section>
+  <section class="section-posts" hidden>
+    <div class="intro-left">
+      <h2>Writing</h2>
+      <p>I don't write as much as I would like to but here is the list of some recent posts.</p>
+      <ul class="posts-list">
+        {% set s = get_section(path="posts/_index.md") %}
+        {% for page in s.pages | reverse | slice(end=5) %}
+        <li>
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+            <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+        </li>
+        {% endfor %}
+        {% if s.pages | length > 5 %}
+        <li>
+          <a href="/posts/">Other posts</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </section>
+  <section class="section-projects" hidden>
+    <div class="intro-left">
+      <h2 id="projects">Projects</h2>
+      <p>Some of the personal projects I have worked on. You can find more on <a target="_blank" rel="noopener noreferrer" href="https://github.com/vividvilla">Github</a>.</p>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">#</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">#</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">#</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">#</a></li>
+      </ul>
+    </div>
+  </section>
+  <section class="section-contact">
+    <h2 id="projects">Contact</h2>
+    <p>
+      You can find me on
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/harshsonawane">Github</a>,
+      <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/harshsonawane/">Linkedin</a>,
+      <a target="_blank" rel="noopener noreferrer" href="https://x.com/imharshsonawane">Twitter</a>
+    </p>
+  </section>
+</div>
+{% endblock content %}
